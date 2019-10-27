@@ -10,24 +10,24 @@ use Ysato\NotFork\Customer\Customer;
 
 class CheckoutCounterTest extends TestCase
 {
-    public function test_add()
+    public function test_add(): void
     {
         $SUT = new CheckoutCounter(1, 1);
         $SUT->enqueue(new Customer());
         $SUT->enqueue(new Customer());
         $SUT->enqueue(new Customer());
 
-        $this->assertEquals(3, $SUT->numberOfCustomers());
+        $this->assertSame(3, $SUT->numberOfCustomers());
     }
 
-    public function test_id()
+    public function test_id(): void
     {
         $SUT = new CheckoutCounter(1, 1);
 
-        $this->assertEquals(1, $SUT->getId());
+        $this->assertSame(1, $SUT->getId());
     }
 
-    public function test_handle()
+    public function test_handle(): void
     {
         $SUT = new CheckoutCounter(1, 2);
         $SUT->enqueue(new Customer());
@@ -36,10 +36,10 @@ class CheckoutCounterTest extends TestCase
 
         $SUT->handle();
 
-        $this->assertEquals(1, $SUT->numberOfCustomers());
+        $this->assertSame(1, $SUT->numberOfCustomers());
     }
 
-    public function test_handle_annoying_customer()
+    public function test_handle_annoying_customer(): void
     {
         $SUT = new CheckoutCounter(1, 2);
         $SUT->enqueue(new Customer());
@@ -48,15 +48,15 @@ class CheckoutCounterTest extends TestCase
 
         $SUT->handle();
 
-        $this->assertEquals(2, $SUT->numberOfCustomers());
+        $this->assertSame(2, $SUT->numberOfCustomers());
     }
 
-    public function test_handle_customers_is_empty()
+    public function test_handle_customers_is_empty(): void
     {
         $SUT = new CheckoutCounter(1, 2);
 
         $SUT->handle();
 
-        $this->assertEquals(0, $SUT->numberOfCustomers());
+        $this->assertSame(0, $SUT->numberOfCustomers());
     }
 }

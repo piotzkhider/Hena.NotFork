@@ -36,7 +36,7 @@
         ],
         "tests": [
             "@cs",
-            "vendor/bin/phpstan analyse -l max src tests -c phpstan.neon --no-progress",
+            "vendor/bin/phpstan analyse -l max src -c phpstan.neon --no-progress",
             "vendor/bin/psalm --show-info=false",
             "@test"
         ],

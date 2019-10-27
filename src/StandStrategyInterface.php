@@ -9,8 +9,6 @@ interface StandStrategyInterface
     /**
      * @param CheckoutCounter[] $counters
      * @param CustomerInterface ...$customers
-     *
-     * @return CheckoutCounter
      */
     public function __invoke(array $counters, CustomerInterface ...$customers): CheckoutCounter;
 }

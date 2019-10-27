@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class NotForkTest extends TestCase
 {
-    public function test_main()
+    public function test_main(): void
     {
         $this->case('42873x.3.', '0,4,2,0,0');
         $this->case('1', '1,0,0,0,0');
@@ -64,10 +64,10 @@ class NotForkTest extends TestCase
         $this->case('4.1..9..513.266..5999769852.2.38x79.x7', '12,10,13,6,10');
     }
 
-    private function case($input, $expected)
+    private function case($input, $expected): void
     {
         $SUT = new NotFork();
 
-        $this->assertEquals($expected, $SUT->main($input));
+        $this->assertSame($expected, $SUT->main($input));
     }
 }

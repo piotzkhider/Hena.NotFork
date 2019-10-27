@@ -8,8 +8,6 @@ class Handle
 {
     /**
      * @param CheckoutCounter[] $checkoutCounters
-     *
-     * @return void
      */
     public function __invoke(array $checkoutCounters): void
     {

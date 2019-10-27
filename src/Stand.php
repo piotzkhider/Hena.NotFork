@@ -17,10 +17,8 @@ class Stand
     }
 
     /**
-     * @param CheckoutCounter[]   $counters
-     * @param CustomerInterface[] $customers
-     *
-     * @return CheckoutCounter
+     * @param CheckoutCounter[] $counters
+     * @param CustomerInterface ...$customers
      */
     public function __invoke(array $counters, CustomerInterface ...$customers): CheckoutCounter
     {

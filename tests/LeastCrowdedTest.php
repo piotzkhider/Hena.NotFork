@@ -11,16 +11,16 @@ use Ysato\NotFork\StandStrategy\LeastCrowded;
 
 class LeastCrowdedTest extends TestCase
 {
-    public function test_invoke()
+    public function test_invoke(): void
     {
         $SUT = new LeastCrowded();
 
         $result = $SUT([new CheckoutCounter(1, 1)], new Customer());
 
-        $this->assertEquals(1, $result->numberOfCustomers());
+        $this->assertSame(1, $result->numberOfCustomers());
     }
 
-    public function test_invoke_counters_is_empty()
+    public function test_invoke_counters_is_empty(): void
     {
         $SUT = new LeastCrowded();
 

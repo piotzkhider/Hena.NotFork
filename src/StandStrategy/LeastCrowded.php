@@ -12,10 +12,8 @@ use Ysato\NotFork\StandStrategyInterface;
 class LeastCrowded implements StandStrategyInterface
 {
     /**
-     * @param CheckoutCounter[]   $counters
-     * @param CustomerInterface[] $customers
-     *
-     * @return CheckoutCounter
+     * @param CheckoutCounter[] $counters
+     * @param CustomerInterface ...$customers
      */
     public function __invoke(array $counters, CustomerInterface ...$customers): CheckoutCounter
     {
@@ -30,8 +28,6 @@ class LeastCrowded implements StandStrategyInterface
 
     /**
      * @param CheckoutCounter[] $counters
-     *
-     * @return CheckoutCounter
      */
     private function getLeastCrowded(array $counters): CheckoutCounter
     {

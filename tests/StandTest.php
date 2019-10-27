@@ -9,7 +9,7 @@ use Ysato\NotFork\Customer\Customer;
 
 class StandTest extends TestCase
 {
-    public function test_invoke()
+    public function test_invoke(): void
     {
         $strategy = $this->createMock(StandStrategyInterface::class);
         $strategy
