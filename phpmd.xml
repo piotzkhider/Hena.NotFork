@@ -17,7 +17,7 @@
     <!--design-->
     <rule ref="rulesets/design.xml/EvalExpression"/>
     <rule ref="rulesets/design.xml/ExitExpression"/>
-    <rule ref="rulesets/design.xml/GotoStatement" />
+    <rule ref="rulesets/design.xml/GotoStatement"/>
     <rule ref="rulesets/design.xml/NumberOfChildren"/>
     <rule ref="rulesets/design.xml/DepthOfInheritance"/>
     <!-- <rule ref="rulesets/design.xml/CouplingBetweenObjects" /> -->
@@ -35,5 +35,5 @@
     <rule ref="rulesets/controversial.xml/CamelCaseMethodName"/>
     <!--cleancode-->
     <rule ref="rulesets/cleancode.xml/BooleanArgumentFlag"/>
-    <rule ref="rulesets/cleancode.xml/ElseExpression" />
+    <rule ref="rulesets/cleancode.xml/ElseExpression"/>
 </ruleset>

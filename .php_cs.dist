@@ -10,7 +10,8 @@ $header = <<<'EOF'
 EOF;
 
 $finder = PhpCsFixer\Finder::create()
-    ->in([__DIR__ . '/src', __DIR__ . '/tests']);
+    ->exclude(['tests/Fake', 'tests/tmp'])
+    ->in(__DIR__);
 
 return \PhpCsFixer\Config::create()
     ->setRiskyAllowed(true)
