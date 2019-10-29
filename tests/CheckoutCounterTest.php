@@ -5,17 +5,15 @@ declare(strict_types=1);
 namespace Ysato\NotFork;
 
 use PHPUnit\Framework\TestCase;
-use Ysato\NotFork\Customer\AnnoyingCustomer;
-use Ysato\NotFork\Customer\Customer;
 
 class CheckoutCounterTest extends TestCase
 {
     public function test_add(): void
     {
         $SUT = new CheckoutCounter(1, 1);
-        $SUT->enqueue(new Customer());
-        $SUT->enqueue(new Customer());
-        $SUT->enqueue(new Customer());
+        $SUT->enqueue(new Customer(1));
+        $SUT->enqueue(new Customer(1));
+        $SUT->enqueue(new Customer(1));
 
         $this->assertSame(3, $SUT->numberOfCustomers());
     }
@@ -30,9 +28,9 @@ class CheckoutCounterTest extends TestCase
     public function test_handle(): void
     {
         $SUT = new CheckoutCounter(1, 2);
-        $SUT->enqueue(new Customer());
-        $SUT->enqueue(new Customer());
-        $SUT->enqueue(new Customer());
+        $SUT->enqueue(new Customer(1));
+        $SUT->enqueue(new Customer(1));
+        $SUT->enqueue(new Customer(1));
 
         $SUT->handle();
 
@@ -42,9 +40,9 @@ class CheckoutCounterTest extends TestCase
     public function test_handle_annoying_customer(): void
     {
         $SUT = new CheckoutCounter(1, 2);
-        $SUT->enqueue(new Customer());
-        $SUT->enqueue(new AnnoyingCustomer());
-        $SUT->enqueue(new Customer());
+        $SUT->enqueue(new Customer(1));
+        $SUT->enqueue(new Customer(INF));
+        $SUT->enqueue(new Customer(1));
 
         $SUT->handle();
 

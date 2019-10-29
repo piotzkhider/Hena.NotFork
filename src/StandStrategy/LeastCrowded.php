@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Ysato\NotFork\StandStrategy;
 
 use Ysato\NotFork\CheckoutCounter;
-use Ysato\NotFork\CustomerInterface;
+use Ysato\NotFork\Customer;
 use Ysato\NotFork\Exception\LogicException;
 use Ysato\NotFork\StandStrategyInterface;
 
@@ -13,9 +13,9 @@ class LeastCrowded implements StandStrategyInterface
 {
     /**
      * @param CheckoutCounter[] $counters
-     * @param CustomerInterface ...$customers
+     * @param Customer          ...$customers
      */
-    public function __invoke(array $counters, CustomerInterface ...$customers): CheckoutCounter
+    public function __invoke(array $counters, Customer ...$customers): CheckoutCounter
     {
         $counter = $this->getLeastCrowded($counters);
 

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Ysato\NotFork;
 
 use SplQueue;
-use Ysato\NotFork\Customer\AnnoyingCustomer;
 
 class CheckoutCounter
 {
@@ -38,15 +37,19 @@ class CheckoutCounter
                 return;
             }
 
-            if ($this->customers->bottom() instanceof AnnoyingCustomer) {
-                return;
+            /** @var BehandledInterface $customer */
+            $customer = $this->customers->bottom();
+            $customer->behandled();
+
+            if (! $customer->isHandled()) {
+                continue;
             }
 
             $this->customers->dequeue();
         }
     }
 
-    public function enqueue(CustomerInterface $customer): void
+    public function enqueue(Customer $customer): void
     {
         $this->customers->enqueue($customer);
     }

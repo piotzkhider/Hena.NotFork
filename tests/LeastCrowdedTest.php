@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Ysato\NotFork;
 
 use PHPUnit\Framework\TestCase;
-use Ysato\NotFork\Customer\Customer;
 use Ysato\NotFork\Exception\LogicException;
 use Ysato\NotFork\StandStrategy\LeastCrowded;
 
@@ -15,7 +14,7 @@ class LeastCrowdedTest extends TestCase
     {
         $SUT = new LeastCrowded();
 
-        $result = $SUT([new CheckoutCounter(1, 1)], new Customer());
+        $result = $SUT([new CheckoutCounter(1, 1)], new Customer(1));
 
         $this->assertSame(1, $result->numberOfCustomers());
     }
@@ -26,6 +25,6 @@ class LeastCrowdedTest extends TestCase
 
         $this->expectException(LogicException::class);
 
-        $SUT([], new Customer());
+        $SUT([], new Customer(1));
     }
 }

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Ysato\NotFork;
 
 use PHPUnit\Framework\TestCase;
-use Ysato\NotFork\Customer\Customer;
 
 class StandTest extends TestCase
 {
@@ -18,7 +17,7 @@ class StandTest extends TestCase
 
         $SUT = new Stand($strategy);
 
-        $result = $SUT->__invoke([$counter], new Customer());
+        $result = $SUT->__invoke([$counter], new Customer(1));
 
         $this->assertSame($counter, $result);
     }

@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Ysato\NotFork;
 
-use Ysato\NotFork\Customer\AnnoyingCustomer;
-use Ysato\NotFork\Customer\Customer;
 use Ysato\NotFork\StandStrategy\LeastCrowded;
 
 class NotFork
@@ -30,12 +28,12 @@ class NotFork
                     $handle($checkoutCounters);
                     break;
                 case 'x':
-                    $stand($checkoutCounters, new AnnoyingCustomer());
+                    $stand($checkoutCounters, new Customer(INF));
                     break;
                 default:
                     $customers = [];
                     for ($i = 0; $i < (int) $command; $i++) {
-                        $customers[] = new Customer();
+                        $customers[] = new Customer(1);
                     }
 
                     $stand($checkoutCounters, ...$customers);
