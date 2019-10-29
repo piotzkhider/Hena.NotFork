@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Ysato\NotFork;
 
-class Customer implements BehandledInterface
+class Customer implements BehandledInterface, StanderInterface
 {
     /**
      * @var float
@@ -24,5 +24,10 @@ class Customer implements BehandledInterface
     public function isHandled(): bool
     {
         return $this->amount <= 0;
+    }
+
+    public function numberOfStanders(): int
+    {
+        return 1;
     }
 }

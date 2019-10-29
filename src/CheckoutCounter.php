@@ -49,14 +49,20 @@ class CheckoutCounter
         }
     }
 
-    public function enqueue(Customer $customer): void
+    public function enqueue(StanderInterface $stander): void
     {
-        $this->customers->enqueue($customer);
+        $this->customers->enqueue($stander);
     }
 
     public function numberOfCustomers(): int
     {
-        return $this->customers->count();
+        $sum = 0;
+        /** @var StanderInterface $stander */
+        foreach ($this->customers as $stander) {
+            $sum += $stander->numberOfStanders();
+        }
+
+        return $sum;
     }
 
     public function getId(): int

@@ -8,7 +8,6 @@ interface StandStrategyInterface
 {
     /**
      * @param CheckoutCounter[] $counters
-     * @param Customer          ...$customers
      */
-    public function __invoke(array $counters, Customer ...$customers): CheckoutCounter;
+    public function __invoke(array $counters, StanderInterface $stander): CheckoutCounter;
 }

@@ -23,22 +23,13 @@ class NotFork
 
         $commands = str_split($input);
         foreach ($commands as $command) {
-            switch ($command) {
-                case '.':
-                    $handle($checkoutCounters);
-                    break;
-                case 'x':
-                    $stand($checkoutCounters, new Customer(INF));
-                    break;
-                default:
-                    $customers = [];
-                    for ($i = 0; $i < (int) $command; $i++) {
-                        $customers[] = new Customer(1);
-                    }
+            if ($command === '.') {
+                $handle($checkoutCounters);
 
-                    $stand($checkoutCounters, ...$customers);
-                    break;
+                continue;
             }
+
+            $stand($checkoutCounters, StanderFactory::make($command));
         }
 
         usort($checkoutCounters, function (CheckoutCounter $a, CheckoutCounter $b) {

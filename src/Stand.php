@@ -18,10 +18,9 @@ class Stand
 
     /**
      * @param CheckoutCounter[] $counters
-     * @param Customer          ...$customers
      */
-    public function __invoke(array $counters, Customer ...$customers): CheckoutCounter
+    public function __invoke(array $counters, StanderInterface $stander): CheckoutCounter
     {
-        return $this->strategy->__invoke($counters, ...$customers);
+        return $this->strategy->__invoke($counters, $stander);
     }
 }
